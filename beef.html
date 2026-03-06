@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>BeEF Simulation</title>
+<link rel="stylesheet" href="style.css">
+
+<script>
+
+function hook(){
+
+alert("Session expired. Please login again.");
+
+document.getElementById("status").innerHTML=
+"Browser hooked successfully. View victim in attacker panel.";
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Browser Exploitation Framework</h1>
+
+<div class="box">
+
+<button onclick="hook()">Load Web Page</button>
+
+<div class="result" id="status"></div>
+
+<br>
+
+<a href="attacker.html">Open Attacker Panel</a>
+
+</div>
+
+</body>
+</html>
