@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SQL Injection Lab</title>
+<link rel="stylesheet" href="style.css">
+
+<script>
+
+function login(){
+
+var user=document.getElementById("user").value;
+var pass=document.getElementById("pass").value;
+
+var query="SELECT * FROM users WHERE username='"+user+"' AND password='"+pass+"'";
+
+document.getElementById("query").innerHTML=query;
+
+if(pass=="' OR 1=1 #" || pass=="' OR '1'='1"){
+document.getElementById("result").innerHTML="Login Successful (SQL Injection Bypass)";
+}
+else if(user=="admin" && pass=="password"){
+document.getElementById("result").innerHTML="Login Successful";
+}
+else{
+document.getElementById("result").innerHTML="Login Failed";
+}
+
+}
+
+</script>
+</head>
+
+<body>
+
+<h1>SQL Injection</h1>
+
+<div class="box">
+
+Username<br>
+<input id="user"><br>
+
+Password<br>
+<input id="pass"><br>
+
+<button onclick="login()">Login</button>
+
+<div class="result">
+
+<p><b>Generated SQL Query</b></p>
+<p id="query"></p>
+
+<p id="result"></p>
+
+</div>
+
+</div>
+
+</body>
+</html>
