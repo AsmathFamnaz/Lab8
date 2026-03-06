@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>File Inclusion</title>
+<link rel="stylesheet" href="style.css">
+
+<script>
+
+function includeFile(){
+
+var file=document.getElementById("file").value;
+
+if(file.includes("http")){
+
+document.getElementById("result").innerHTML=
+"Remote file included: "+file+
+"<br><br>Executing remote script..."+
+"<br>Reverse shell connection established.";
+
+}
+else{
+
+document.getElementById("result").innerHTML=
+"Local file included: "+file;
+
+}
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>File Inclusion</h1>
+
+<div class="box">
+
+Enter file URL<br>
+<input id="file" placeholder="http://attacker/script.txt">
+
+<br><br>
+
+<button onclick="includeFile()">Include File</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</body>
+</html>
